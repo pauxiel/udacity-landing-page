@@ -23,9 +23,10 @@ h1 {
   font-size: 8vmin;
 }
 
-.active {
+.highlight {
   padding: 0.2em 0.7em;
   background: #fff;
+  /* color: #000000; */
 
   border-radius: 100px;
 }
@@ -123,6 +124,7 @@ header {
 #section3,
 #section4 {
   padding: 7vh 0;
+  color: #fff;
 }
 
 @media (min-width: 800px) {
@@ -132,7 +134,7 @@ header {
   #section4 {
     padding: 15vh 0;
 
-    color: #fff;
+    /* color: #fff; */
     height: 100vh;
   }
 
