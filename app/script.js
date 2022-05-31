@@ -9,7 +9,6 @@ const selectSections = allSections.filter(
 // select nav list
 const navList = document.getElementsByClassName("nav__list");
 
-
 //---------------------------------------//
 // Dynamic creation of the nav list----//
 //-----------------------------------//
@@ -68,13 +67,26 @@ window.addEventListener("scroll", (e) => {
     // get px distance from top
     const topDistance = section.getBoundingClientRect().top;
 
-    // if the distance to the top is between 0-100px
-    if (topDistance > 0 && topDistance < 100) {
-      section.classList.add("active");
+    const listItem = Array.from(document.getElementsByClassName("nav__item"));
+    console.log(listItem);
 
-      // otherwise, remove the class
-    } else {
-      section.classList.remove("active");
-    }
+    listItem.forEach((item) => {
+      const itemLink = item.firstChild.textContent;
+      // if the distance to the top is between 0-100px
+      if (topDistance > 0 && topDistance < 100) {
+        section.classList.add("active");
+
+        // if nav link content correspond to the section data nav
+        if (itemLink == section.dataset.nav) {
+          item.classList.add("highlight");
+        } else {
+          item.classList.remove("highlight");
+        }
+
+        // otherwise, remove the class
+      } else {
+        section.classList.remove("active");
+      }
+    });
   });
 });
